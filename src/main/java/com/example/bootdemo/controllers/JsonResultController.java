@@ -4,6 +4,8 @@ import com.example.bootdemo.entities.JsonResult;
 import com.example.bootdemo.entities.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +21,13 @@ import java.util.Map;
 @RequestMapping(value = "/jsonResult")
 @Api(tags = "测试")
 public class JsonResultController {
+
+    private static final Logger logger = LoggerFactory.getLogger(JsonResultController.class);
     @GetMapping(value="/user")
     @ApiOperation("获得用户信息")
     public JsonResult<User> getUser(){
         User me = new User(0L, "omotcha", "sadf");
+        logger.info("reg user");
         return new JsonResult<>(me);
     }
 
