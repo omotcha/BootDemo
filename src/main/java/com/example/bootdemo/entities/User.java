@@ -1,8 +1,12 @@
-package com.example.bootdemo.Entities;
+package com.example.bootdemo.entities;
+
+import com.alibaba.fastjson2.JSONWriter;
+import com.alibaba.fastjson2.annotation.JSONField;
 
 public class User {
     private Long id;
     private String userName;
+    @JSONField(serializeFeatures = JSONWriter.Feature.WriteNullStringAsEmpty)
     private String password;
 
 
