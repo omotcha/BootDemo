@@ -19,7 +19,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/jsonResult")
-@Api(tags = "测试")
+@Api(tags = "JsonResult测试")
 public class JsonResultController {
 
     private static final Logger logger = LoggerFactory.getLogger(JsonResultController.class);
@@ -31,7 +31,7 @@ public class JsonResultController {
         return new JsonResult<>(me);
     }
 
-    @RequestMapping("/list")
+    @GetMapping("/list")
     public JsonResult<List> getUserList(){
         List<User> users = new ArrayList<>();
         User user1 = new User(1L, "ua", "ua");
@@ -41,7 +41,7 @@ public class JsonResultController {
         return new JsonResult<>(users, "list success");
     }
 
-    @RequestMapping("/map")
+    @GetMapping("/map")
     public JsonResult<Map> getMap(){
         Map<String, Object> map = new HashMap<>(3);
         User user = new User(1L, "ua", null);
