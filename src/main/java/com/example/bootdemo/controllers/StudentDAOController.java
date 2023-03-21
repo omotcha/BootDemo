@@ -17,10 +17,17 @@ public class StudentDAOController {
     @Autowired
     private StudentService service;
 
-    @ApiOperation("获得用户")
-    @GetMapping("/getOmotcha")
+    @ApiOperation("获得测试用户名字")
+    @GetMapping("/getOmotchaName")
     public String getOmotcha(){
         Student omotcha = service.getStudent(1);
         return omotcha.getName();
+    }
+
+    @ApiOperation("获得测试用户ID")
+    @GetMapping("/getOmotchaID")
+    public Integer getOmotchaID(){
+        Student omotcha = service.getStudentByName("omotcha");
+        return omotcha.getId();
     }
 }

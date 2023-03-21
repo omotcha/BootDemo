@@ -18,4 +18,9 @@ public class StudentServiceImpl implements StudentService {
     public Student getStudent(Integer id) {
         return studentMapper.getStudent(id);
     }
+
+    @Override
+    public Student getStudentByName(String name) {
+        return studentMapper.getStudentByName(name);
+    }
 }
