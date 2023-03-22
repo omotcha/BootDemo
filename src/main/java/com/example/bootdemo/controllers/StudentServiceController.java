@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/student")
 @Api(tags="数据库测试")
-public class StudentDAOController {
+public class StudentServiceController {
 
     @Autowired
     private StudentService service;
@@ -21,6 +21,7 @@ public class StudentDAOController {
     @GetMapping("/getOmotchaName")
     public String getOmotcha(){
         Student omotcha = service.getStudent(1);
+        System.err.println(omotcha.toString());
         return omotcha.getName();
     }
 
